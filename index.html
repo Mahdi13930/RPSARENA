@@ -3,75 +3,71 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>RPS Arena — سنگ کاغذ قیچی</title>
-<meta name="description" content="RPS Arena؛ بازی آفلاین سنگ کاغذ قیچی با جام‌ها، رنک، فروشگاه و لیدربورد.">
-<meta name="theme-color" content="#080b18">
+<title>RPS Arena V2</title>
+<meta name="theme-color" content="#070914">
 <style>
-:root{
- --bg:#060814;--panel:#0e1427e8;--panel2:#121a31;--text:#f7f8ff;--muted:#aeb8d4;
- --line:#ffffff16;--purple:#825cff;--cyan:#20dcff;--pink:#ff4fa3;--gold:#ffc857;
-}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;
- background:radial-gradient(circle at 12% 4%,#33215e 0,transparent 27%),radial-gradient(circle at 90% 8%,#034b60 0,transparent 25%),radial-gradient(circle at 55% 75%,#211044 0,transparent 24%),var(--bg);min-height:100vh;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.35;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
-.wrap{width:min(1120px,92%);margin:auto}.top{height:74px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:11px;font-weight:950;font-size:21px}.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,var(--purple),var(--cyan));box-shadow:0 12px 40px #20dcff35}
-.lang{cursor:pointer;color:#fff;background:#ffffff0b;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-weight:800}
-.hero{position:relative;text-align:center;padding:70px 0 42px}.orb{position:absolute;width:230px;height:230px;border-radius:50%;background:linear-gradient(135deg,#825cff55,#20dcff22);filter:blur(25px);left:50%;top:55px;transform:translateX(-50%);z-index:-1}
-.badge{display:inline-flex;gap:8px;padding:8px 14px;border:1px solid #ffffff1c;background:#ffffff09;border-radius:999px;color:#dbe1f6;font-size:13px}
-.hero h1{font-size:clamp(54px,11vw,105px);line-height:.9;letter-spacing:-5px;margin:24px 0 18px;background:linear-gradient(90deg,#fff 20%,#bbaeff 52%,#71edff 85%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero p{max-width:760px;margin:auto;color:var(--muted);font-size:18px;line-height:1.9}
-.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px 0 20px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 23px;border-radius:16px;text-decoration:none;font-weight:950;font-size:16px;transition:.2s transform,.2s box-shadow}.btn:hover{transform:translateY(-3px)}
-.primary{color:#061019;background:linear-gradient(135deg,var(--purple),var(--cyan));box-shadow:0 15px 45px #20dcff25}.secondary{color:#fff;background:#ffffff09;border:1px solid var(--line)}
-.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.chips span{padding:7px 10px;border:1px solid var(--line);background:#ffffff07;border-radius:10px;color:#cbd2e8;font-size:12px}
-.section{margin:62px 0}.section-title{text-align:center;font-size:31px;margin:0 0 8px}.sub{text-align:center;color:var(--muted);margin:0 0 25px}
-.features{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:linear-gradient(145deg,#151b34e8,#0a0f20e8);border:1px solid var(--line);border-radius:25px;padding:23px;box-shadow:0 24px 70px #0007;backdrop-filter:blur(14px)}
-.feature{min-height:158px}.feature .icon{font-size:31px}.feature h3{margin:11px 0 6px}.feature p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
-.showcase{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:center}.copy h2{font-size:35px;margin:12px 0}.copy p{color:var(--muted);line-height:1.9}.ticks{display:grid;gap:9px;margin-top:18px}.ticks div{background:#ffffff07;border:1px solid var(--line);border-radius:13px;padding:11px 14px}
-.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}.shot{position:relative;border-radius:21px;padding:5px;background:linear-gradient(145deg,#ffffff18,#ffffff03);border:1px solid var(--line);box-shadow:0 20px 50px #0007;transition:.2s transform}.shot:hover{transform:translateY(-6px) scale(1.015)}.shot img{display:block;width:100%;height:auto;border-radius:17px}.shot span{position:absolute;bottom:13px;right:12px;left:12px;background:#050713d9;border:1px solid #ffffff14;border-radius:10px;padding:7px 8px;text-align:center;font-size:12px;font-weight:800}
-.download{padding:48px 25px;text-align:center;position:relative;overflow:hidden}.download:before{content:"";position:absolute;width:350px;height:350px;border-radius:50%;background:#825cff22;filter:blur(50px);left:50%;top:50%;transform:translate(-50%,-50%)}.download>*{position:relative}.download h2{font-size:36px;margin:0 0 9px}.download p{color:var(--muted);margin-bottom:24px}
-footer{text-align:center;color:#747e9e;padding:27px 0 45px;font-size:13px}
-.en{display:none}.english{direction:ltr}.english .fa{display:none}.english .en{display:inline}
-@media(max-width:850px){.features{grid-template-columns:1fr 1fr}.showcase{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:520px){.top{height:66px}.hero{padding-top:50px}.hero h1{letter-spacing:-3px}.hero p{font-size:15px}.features{gap:9px}.card{padding:17px}.feature{min-height:140px}.gallery{grid-template-columns:repeat(2,1fr);gap:9px}.section{margin:45px 0}.section-title{font-size:27px}.download h2{font-size:29px}}
+:root{--bg:#050712;--panel:#11182e;--text:#fff;--muted:#aeb8d4;--line:#ffffff18;--p:#8b5cf6;--c:#22d3ee;--g:#34d399;--pk:#ec4899}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;background:radial-gradient(circle at 10% 5%,#8b5cf633,transparent 27%),radial-gradient(circle at 90% 10%,#22d3ee2b,transparent 25%),radial-gradient(circle at 50% 90%,#ec48991c,transparent 30%),var(--bg);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(#fff1 1px,transparent 1px),linear-gradient(90deg,#fff1 1px,transparent 1px);background-size:45px 45px}
+.wrap{width:min(1120px,92%);margin:auto;position:relative}.top{height:78px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-weight:950;font-size:21px}.logo{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--p),var(--c));font-size:24px;box-shadow:0 15px 45px #22d3ee33}.lang{background:#ffffff0d;border:1px solid var(--line);color:#fff;border-radius:999px;padding:9px 14px;font-weight:800}
+.hero{text-align:center;padding:65px 0 50px}.badge{display:inline-flex;padding:8px 14px;border-radius:999px;background:#ffffff09;border:1px solid var(--line);font-size:13px}.hero h1{font-size:clamp(58px,12vw,110px);line-height:.9;letter-spacing:-6px;margin:25px 0 18px;background:linear-gradient(90deg,#fff,#c4b5fd,#67e8f9);color:transparent;background-clip:text;-webkit-background-clip:text}.hero p{max-width:760px;margin:auto;color:var(--muted);line-height:1.9;font-size:17px}.actions{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin:28px 0}.btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;text-decoration:none;color:#fff;padding:14px 21px;border-radius:15px;font-weight:950;border:1px solid transparent;transition:.2s}.btn:hover{transform:translateY(-3px)}.primary{color:#061019;background:linear-gradient(135deg,var(--p),var(--c));box-shadow:0 16px 45px #22d3ee22}.online{background:linear-gradient(135deg,#7c3aed,var(--pk));box-shadow:0 16px 45px #ec489922}.support{background:linear-gradient(135deg,#059669,var(--g))}.secondary{background:#ffffff09;border-color:var(--line)}.chips{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.chips span{padding:7px 11px;border:1px solid var(--line);border-radius:10px;background:#ffffff07;color:#cbd2e8;font-size:12px}
+.section{margin:55px 0}.title{text-align:center;font-size:31px;margin:0 0 8px}.sub{text-align:center;color:var(--muted);margin:0 0 24px}.card{background:linear-gradient(145deg,#151b34e8,#080c1be8);border:1px solid var(--line);border-radius:25px;padding:25px;box-shadow:0 24px 70px #0008;backdrop-filter:blur(15px)}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.feature{min-height:170px}.icon{font-size:31px}.feature h3{margin:10px 0 6px}.feature p{color:var(--muted);font-size:14px;line-height:1.7;margin:0}
+.v2{display:grid;grid-template-columns:1.2fr .8fr;gap:15px}.v2main h2{font-size:35px;margin:12px 0}.v2main p{color:var(--muted);line-height:1.9}.newgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}.point{padding:12px;border:1px solid var(--line);border-radius:14px;background:#ffffff08}.glow{text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}.big{width:105px;height:105px;border-radius:30px;display:grid;place-items:center;font-size:50px;background:linear-gradient(135deg,#8b5cf633,#22d3ee22);border:1px solid var(--line);box-shadow:0 20px 60px #22d3ee18}
+.versions{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.version h3{font-size:22px;margin:7px 0}.version p{color:var(--muted);line-height:1.7;min-height:48px}.version.current{border-color:#22d3ee55;box-shadow:0 25px 80px #22d3ee12}.tag{display:inline-block;padding:5px 9px;border-radius:9px;background:#22d3ee18;color:#67e8f9;font-size:12px;font-weight:900}
+.supportbox{display:grid;grid-template-columns:1fr auto;align-items:center;gap:20px}.supportbox h2{margin:0 0 8px;font-size:30px}.supportbox p{color:var(--muted);line-height:1.8;margin:0}.download{text-align:center;padding:45px}.download h2{font-size:35px;margin:0 0 8px}.download p{color:var(--muted)}
+footer{text-align:center;color:#707a99;padding:30px 0 45px;font-size:13px}.en{display:none}.english{direction:ltr}.english .fa{display:none}.english .en{display:inline}
+@media(max-width:850px){.features{grid-template-columns:1fr 1fr}.v2{grid-template-columns:1fr}.versions{grid-template-columns:1fr}.supportbox{grid-template-columns:1fr;text-align:center}}
+@media(max-width:520px){.hero{padding-top:45px}.hero h1{letter-spacing:-3px}.features{gap:9px}.card{padding:18px}.newgrid{grid-template-columns:1fr}.btn{width:100%}.actions{padding:0 5px}.title{font-size:27px}}
 </style>
 </head>
-<body>
-<div class="wrap">
+<body><div class="wrap">
 <header class="top"><div class="brand"><div class="logo">🪨</div>RPS Arena</div><button class="lang" onclick="toggleLang()">🌐 <span class="fa">English</span><span class="en">فارسی</span></button></header>
 
-<section class="hero"><div class="orb"></div><div class="badge">🎮 <span class="fa">بازی آفلاین اندروید</span><span class="en">Offline Android Game</span></div>
+<section class="hero">
+<div class="badge">🚀 <span class="fa">RPS Arena V2 منتشر شد</span><span class="en">RPS Arena V2 is live</span></div>
 <h1>RPS ARENA</h1>
-<p class="fa">سنگ، کاغذ، قیچی؛ اما این بار در یک آرنای کامل با جام‌ها، رنک، فروشگاه، جعبه‌ها و رقابت با هوش مصنوعی.</p>
-<p class="en">Rock, Paper, Scissors — now in a full arena with cups, ranks, a shop, boxes and AI competition.</p>
-<div class="actions"><a class="btn primary" href="https://github.com/Mahdi13930/RPSARENA/releases/latest/download/RPS-Arena.apk" download>⬇️ <span class="fa">دانلود APK</span><span class="en">Download APK</span></a><a class="btn secondary" href="#gallery">🖼️ <span class="fa">تصاویر بازی</span><span class="en">Screenshots</span></a></div>
-<div class="chips"><span>📱 Android</span><span>⚡ Offline</span><span>💾 Saved Progress</span><span>🆓 Free</span></div></section>
-
-<section class="features">
-<div class="card feature"><div class="icon">🏆</div><h3 class="fa">۴ جام آفلاین</h3><h3 class="en">4 Offline Cups</h3><p class="fa">محلی، استانی، کشوری و جهانی؛ هرکدام با سطح دشواری مخصوص.</p><p class="en">Local, Provincial, National and World — each with its own difficulty.</p></div>
-<div class="card feature"><div class="icon">👑</div><h3 class="fa">سیستم رنک</h3><h3 class="en">Rank System</h3><p class="fa">رنک‌های مختلف را از فروشگاه تهیه و پروفایلت را ارتقا بده.</p><p class="en">Collect different ranks and customize your profile.</p></div>
-<div class="card feature"><div class="icon">🎁</div><h3 class="fa">جعبه و آیتم</h3><h3 class="en">Boxes & Items</h3><p class="fa">قاب، استایل، تم و جعبه‌های متنوع برای شخصی‌سازی.</p><p class="en">Frames, styles, themes and collectible boxes.</p></div>
-<div class="card feature"><div class="icon">📊</div><h3 class="fa">۱۰۰۰ رقیب AI</h3><h3 class="en">1,000 AI Rivals</h3><p class="fa">در لیدربورد فصلی برای جایگاه‌های بالاتر رقابت کن.</p><p class="en">Compete on the seasonal leaderboard against 1,000 AI rivals.</p></div>
+<p class="fa">سنگ، کاغذ، قیچی در یک آرنای کامل؛ حالا با بخش آنلاین، زبان انگلیسی، جام‌ها، رنک، فروشگاه، جعبه‌ها و لیدربورد فصلی.</p>
+<p class="en">Rock, Paper, Scissors in a full arena — now with online play, English, cups, ranks, shop, boxes and seasonal leaderboards.</p>
+<div class="actions">
+<a class="btn primary" href="https://github.com/Mahdi13930/RPSARENA/releases/latest/download/RPS-Arena.apk">⬇️ <span class="fa">دانلود V2</span><span class="en">Download V2</span></a>
+<a class="btn online" href="https://rps-arena-online1.ly4229394.workers.dev/" target="_blank">🌐 <span class="fa">بازی آنلاین</span><span class="en">Play Online</span></a>
+<a class="btn support" href="https://daramet.com/Rps-Arena" target="_blank">💚 <span class="fa">حمایت از بازی</span><span class="en">Support</span></a>
+</div>
+<div class="chips"><span>📱 Android</span><span>🌐 Online 2P</span><span>🇮🇷 فارسی</span><span>🇬🇧 English</span><span>💾 Save</span></div>
 </section>
 
-<section class="section showcase"><div class="card copy"><div class="badge">🪨 📄 ✂️</div><h2 class="fa">آماده‌ای قهرمان آرنا بشی؟</h2><h2 class="en">Ready to become an arena champion?</h2><p class="fa">یک بازی سریع شروع کن یا وارد جام‌های AI شو. پیشرفت، آمار و آیتم‌های تو روی دستگاه ذخیره می‌شوند.</p><p class="en">Start a quick match or enter the AI cups. Your progress, stats and items are saved locally on your device.</p><div class="ticks"><div class="fa">✅ بهترین از ۵ در بازی سریع</div><div class="en">✅ Best-of-5 quick matches</div><div class="fa">✅ پروفایل قابل شخصی‌سازی</div><div class="en">✅ Customizable profile</div><div class="fa">✅ کاملاً آفلاین</div><div class="en">✅ Fully offline</div></div></div>
-<div class="card"><img src="images/screen1.jpg" alt="RPS Arena Home" style="width:100%;border-radius:18px;display:block"></div></section>
+<section class="section card v2">
+<div class="v2main">
+<span class="tag">VERSION 2</span><h2 class="fa">نسخه ۲؛ بزرگ‌تر و کامل‌تر 🔥</h2><h2 class="en">Version 2 — bigger and better 🔥</h2>
+<p class="fa">در نسخه جدید، بخش آنلاین مستقیماً از داخل بازی در دسترس است و می‌توانی وارد نسخه آنلاین شوی. زبان انگلیسی هم اضافه شده و پایداری رابط و ذخیره‌سازی بهتر شده؛ قابلیت‌های قدیمی هم حفظ شده‌اند.</p>
+<p class="en">Version 2 adds direct access to online play, English language support and improved UI/save stability while keeping the existing features.</p>
+<div class="newgrid"><div class="point">🌐 <span class="fa">ورود به بازی آنلاین</span><span class="en">Online access</span></div><div class="point">🇬🇧 <span class="fa">زبان انگلیسی</span><span class="en">English language</span></div><div class="point">🛡️ <span class="fa">رفع باگ و پایداری</span><span class="en">Bug fixes & stability</span></div><div class="point">🎮 <span class="fa">قابلیت‌های قبلی حفظ شد</span><span class="en">Old features kept</span></div></div>
+</div><div class="glow"><div class="big">🪨📄✂️</div><h3 class="fa">آرنا آماده است</h3><h3 class="en">The arena is ready</h3><a class="btn online" href="https://rps-arena-online1.ly4229394.workers.dev/" target="_blank">🌐 <span class="fa">ورود به آنلاین</span><span class="en">Enter Online</span></a></div>
+</section>
 
-<section class="section" id="gallery"><h2 class="section-title fa">📸 تصاویر واقعی بازی</h2><h2 class="section-title en">📸 Real Game Screenshots</h2><p class="sub fa">بخشی از محیط واقعی RPS Arena</p><p class="sub en">A look at the real RPS Arena interface</p>
-<div class="gallery">
-<div class="shot"><img src="images/screen1.jpg" alt="صفحه اصلی"><span class="fa">صفحه اصلی</span><span class="en">Home</span></div>
-<div class="shot"><img src="images/screen2.jpg" alt="جام های AI"><span class="fa">جام‌های AI</span><span class="en">AI Cups</span></div>
-<div class="shot"><img src="images/screen3.jpg" alt="فروشگاه رنک"><span class="fa">فروشگاه رنک</span><span class="en">Rank Shop</span></div>
-<div class="shot"><img src="images/screen4.jpg" alt="لیدربورد"><span class="fa">لیدربورد</span><span class="en">Leaderboard</span></div>
-<div class="shot"><img src="images/screen5.jpg" alt="پروفایل"><span class="fa">پروفایل</span><span class="en">Profile</span></div>
+<section class="section"><h2 class="title fa">قابلیت‌های بازی</h2><h2 class="title en">Game Features</h2><p class="sub fa">هم امکانات قدیمی، هم چیزهای جدید</p><p class="sub en">The classic features plus the new additions</p>
+<div class="features">
+<div class="card feature"><div class="icon">🏆</div><h3 class="fa">۴ جام آفلاین</h3><h3 class="en">4 Offline Cups</h3><p class="fa">محلی، استانی، کشوری و جهانی.</p><p class="en">Local, Provincial, National and World.</p></div>
+<div class="card feature"><div class="icon">👑</div><h3 class="fa">رنک و فروشگاه</h3><h3 class="en">Ranks & Shop</h3><p class="fa">رنک‌ها، قاب‌ها، استایل‌ها و آیتم‌ها.</p><p class="en">Ranks, frames, styles and items.</p></div>
+<div class="card feature"><div class="icon">🎁</div><h3 class="fa">جعبه‌ها</h3><h3 class="en">Boxes</h3><p class="fa">جعبه‌های مختلف و جوایز قابل ذخیره.</p><p class="en">Different boxes and saved rewards.</p></div>
+<div class="card feature"><div class="icon">📊</div><h3 class="fa">۱۰۰۰ رقیب AI</h3><h3 class="en">1,000 AI Rivals</h3><p class="fa">لیدربورد فصلی با پیشرفت ذخیره‌شده.</p><p class="en">Seasonal leaderboard with saved progress.</p></div>
 </div></section>
 
-<section class="card download"><h2 class="fa">🔥 وارد آرنا شو!</h2><h2 class="en">🔥 Enter the Arena!</h2><p class="fa">RPS Arena را رایگان دانلود کن و رقابت را شروع کن.</p><p class="en">Download RPS Arena for free and start competing.</p><a class="btn primary" href="https://github.com/Mahdi13930/RPSARENA/releases/latest/download/RPS-Arena.apk" download>⬇️ <span class="fa">دانلود RPS Arena</span><span class="en">Download RPS Arena</span></a></section>
-<footer>RPS Arena • Offline Android Game • © 2026</footer>
+<section class="section"><h2 class="title fa">📦 دانلود نسخه‌ها</h2><h2 class="title en">📦 Download Versions</h2><p class="sub fa">نسخه‌های قبلی را هم نگه داشتیم.</p><p class="sub en">Older versions are still available.</p>
+<div class="versions">
+<div class="card version current"><span class="tag">CURRENT</span><h3>RPS Arena V2</h3><p class="fa">نسخه فعلی با آنلاین، انگلیسی و امکانات جدید.</p><p class="en">Current release with online, English and new features.</p><a class="btn primary" href="https://github.com/Mahdi13930/RPSARENA/releases/latest/download/RPS-Arena.apk">⬇️ <span class="fa">دانلود V2</span><span class="en">Download V2</span></a></div>
+<div class="card version"><span class="tag">V1</span><h3>RPS Arena V1</h3><p class="fa">نسخه قبلی؛ برای کسانی که می‌خواهند نسخه قدیمی را داشته باشند.</p><p class="en">Previous release for anyone who wants the older version.</p><a class="btn secondary" href="https://github.com/Mahdi13930/RPSARENA/releases/tag/1.0.0" target="_blank">📦 <span class="fa">دانلود از Release</span><span class="en">Open Release</span></a></div>
+<div class="card version"><span class="tag">ARCHIVE</span><h3 class="fa">آرشیو نسخه‌ها</h3><h3 class="en">Version Archive</h3><p class="fa">هر نسخه‌ای که در آینده منتشر شود از اینجا قابل دریافت خواهد بود.</p><p class="en">Future releases will remain available here.</p><a class="btn secondary" href="https://github.com/Mahdi13930/RPSARENA/releases" target="_blank">🗃️ <span class="fa">مشاهده همه نسخه‌ها</span><span class="en">View All Releases</span></a></div>
+</div></section>
+
+<section class="section card supportbox"><div><h2 class="fa">💚 حمایت از RPS Arena</h2><h2 class="en">💚 Support RPS Arena</h2><p class="fa">اگر بازی را دوست داری، می‌توانی برای ادامه توسعه و آپدیت‌ها از پروژه حمایت کنی.</p><p class="en">If you enjoy the game, you can support its continued development and updates.</p></div><a class="btn support" href="https://daramet.com/Rps-Arena" target="_blank">💚 <span class="fa">دونیت / حمایت</span><span class="en">Donate / Support</span></a></section>
+
+<section class="section card download"><h2 class="fa">🔥 آماده‌ای؟</h2><h2 class="en">🔥 Ready?</h2><p class="fa">نسخه ۲ را بگیر یا وارد آرنای آنلاین شو.</p><p class="en">Get Version 2 or enter the online arena.</p><div class="actions"><a class="btn primary" href="https://github.com/Mahdi13930/RPSARENA/releases/latest/download/RPS-Arena.apk">⬇️ <span class="fa">دانلود V2</span><span class="en">Download V2</span></a><a class="btn online" href="https://rps-arena-online1.ly4229394.workers.dev/" target="_blank">🌐 <span class="fa">بازی آنلاین</span><span class="en">Play Online</span></a></div></section>
+<footer>RPS Arena • V2 • Android + Online • © 2026</footer>
 </div>
 <script>
-function toggleLang(){document.body.classList.toggle('english');const e=document.body.classList.contains('english');document.documentElement.lang=e?'en':'fa';document.documentElement.dir=e?'ltr':'rtl';localStorage.setItem('rpsLang',e?'en':'fa')}
+function toggleLang(){document.body.classList.toggle('english');let e=document.body.classList.contains('english');document.documentElement.lang=e?'en':'fa';document.documentElement.dir=e?'ltr':'rtl';localStorage.setItem('rpsLang',e?'en':'fa')}
 if(localStorage.getItem('rpsLang')==='en')toggleLang();
 </script>
 </body></html>
